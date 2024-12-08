@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Autores</title>
+</head>
+<body>
+    <h1>Lista de Autores</h1>
+    <a href="{% url 'autor_create' %}">Adicionar Autor</a>
+    <ul>
+        {% for autor in autores %}
+            <li>
+                {{ autor.nome }} - {{ autor.nacionalidade }}
+                <a href="{% url 'autor_update' autor.pk %}">Editar</a>
+                <a href="{% url 'autor_delete' autor.pk %}">Deletar</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

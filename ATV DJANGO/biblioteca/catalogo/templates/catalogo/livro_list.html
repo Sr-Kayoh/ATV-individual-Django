@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Livros</title>
+</head>
+<body>
+    <h1>Lista de Livros</h1>
+    <a href="{% url 'livro_create' %}">Adicionar Livro</a>
+    <ul>
+        {% for livro in livros %}
+            <li>
+                {{ livro.titulo }} - {{ livro.autor.nome }} ({{ livro.ano_publicacao }})
+                <a href="{% url 'livro_update' livro.pk %}">Editar</a>
+                <a href="{% url 'livro_delete' livro.pk %}">Deletar</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
